@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head><script src="/aws-report-fcj/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=aws-report-fcj/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.150.0">
+    <meta
+  name="description"
+  content=""
+/>
+<meta name="author" content="thienlh@thienlu.com" />
+
+    <link rel="icon" href="http://localhost:1313/aws-report-fcj/images/favicon.png" type="image/png">
+
+    <title>Cấu hình DynamoDB :: Báo cáo thực tập</title>
+
+    
+    <link href="http://localhost:1313/aws-report-fcj/css/nucleus.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/fontawesome-all.min.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/hybrid.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/featherlight.min.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/perfect-scrollbar.min.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/auto-complete.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/atom-one-dark-reasonable.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/theme.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/hugo-theme.css?1765038701" rel="stylesheet">
+    
+    <link href="http://localhost:1313/aws-report-fcj/css/theme-workshop.css?1765038701" rel="stylesheet">
+    
+    
+
+    <script src="http://localhost:1313/aws-report-fcj/js/jquery-3.3.1.min.js?1765038701"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+
+  </head>
+  <body class="" data-url="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/">
+    <nav
+  id="sidebar"
+  class="showVisitedLinks"
+>
+   
+  <div id="header-wrapper">
+    <div id="header"><a id="logo" href="http://localhost:1313/aws-report-fcj/">
+  <svg
+    id="Layer_1"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 60 30"
+    width="30%"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #fff;
+        }
+        .cls-2 {
+          fill: #f90;
+          fill-rule: evenodd;
+        }
+      </style>
+    </defs>
+    <title>AWS-Logo_White-Color</title>
+    <path
+      class="cls-1"
+      d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"
+    ></path>
+  </svg>
+</a></div>
+     <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="http://localhost:1313/aws-report-fcj/js/lunr.min.js?1765038701"></script>
+<script type="text/javascript" src="http://localhost:1313/aws-report-fcj/js/auto-complete.js?1765038701"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/localhost:1313\/aws-report-fcj\/\/vi";
+    
+</script>
+<script type="text/javascript" src="http://localhost:1313/aws-report-fcj/js/search.js?1765038701"></script>
+ 
+  </div>
+
+  <div class="highlightable">
+    <ul class="topics">
+               
+<li
+  data-nav-id="/vi/1-worklog/"
+  title="Nhật ký công việc"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/">
+     <b> 1. </b> Nhật ký công việc 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/1-worklog/1.1-week1/"
+  title="Tuần 1 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.1-week1/">
+     <b> 1.1. </b> Tuần 1 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.2-week2/"
+  title="Tuần 2 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.2-week2/">
+     <b> 1.2. </b> Tuần 2 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.3-week3/"
+  title="Tuần 3 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.3-week3/">
+     <b> 1.3. </b> Tuần 3 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.4-week4/"
+  title="Tuần 4 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.4-week4/">
+     <b> 1.4. </b> Tuần 4 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.5-week5/"
+  title="Tuần 5 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.5-week5/">
+     <b> 1.5. </b> Tuần 5 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.7-week7/"
+  title="Tuần 7 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.7-week7/">
+     <b> 1.7. </b> Tuần 7 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.8-week8/"
+  title="Tuần 8 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.8-week8/">
+     <b> 1.8. </b> Tuần 8 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.9-week9/"
+  title="Tuần 9 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.9-week9/">
+     <b> 1.9. </b> Tuần 9 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.10-week10/"
+  title="Tuần 10 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.10-week10/">
+     <b> 1.10. </b> Tuần 10 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.11-week11/"
+  title="Tuần 11 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.11-week11/">
+     <b> 1.11. </b> Tuần 11 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.12-week12/"
+  title="Tuần 12 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.12-week12/">
+     <b> 1.12. </b> Tuần 12 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.6-week6/"
+  title=""
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.6-week6/">
+     
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/2-proposal/"
+  title="Bản đề xuất"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/2-proposal/">
+     <b> 2. </b> Bản đề xuất 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/3-blogstranslated/"
+  title="Các bài blogs đã dịch"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/">
+     <b> 3. </b> Các bài blogs đã dịch 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.1-blog1/"
+  title="Blog 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/3.1-blog1/">
+     <b> 3.1. </b> Blog 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.2-blog2/"
+  title="blog 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/3.2-blog2/">
+     <b> 3.2. </b> blog 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.3-blog3/"
+  title="Blog 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/3.3-blog3/">
+     <b> 3.3. </b> Blog 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/4-eventparticipated/"
+  title="Các events đã tham gia"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/">
+     <b> 4. </b> Các events đã tham gia 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.1-event1/"
+  title="Event 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/4.1-event1/">
+     <b> 4.1. </b> Event 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.2-event2/"
+  title="Sự kiện 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/4.2-event2/">
+     <b> 4.2. </b> Sự kiện 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.3-event3/"
+  title="Event 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/4.3-event3/">
+     <b> 4.3. </b> Event 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.4-event4/"
+  title="Event 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/4.4-event4/">
+     <b> 4.4. </b> Event 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.5-event5/"
+  title="Event 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/4.5-event5/">
+     <b> 4.5. </b> Event 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/5-workshop/"
+  title="Workshop"
+  class="dd-item 
+        parent
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/">
+     <b> 5. </b> Workshop 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.1-workshop-overview/"
+  title="Tổng quan Workshop"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.1-workshop-overview/">
+     <b> 5.1. </b> Tổng quan Workshop 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.2-prerequiste/"
+  title="Chuẩn bị"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.2-prerequiste/">
+     <b> 5.2. </b> Chuẩn bị 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/"
+  title="Thiết lập Pipeline CI/CD"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.3-s3-vpc/">
+     <b> 5.3. </b> Thiết lập Pipeline CI/CD 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/"
+  title="Tạo CodePipeline và CodeBuild"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/">
+     <b> 5.3.1. </b> Tạo CodePipeline và CodeBuild 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/"
+  title="Cấu hình quét bảo mật"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/">
+     <b> 5.3.2. </b> Cấu hình quét bảo mật 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/"
+  title="Xây dựng FastAPI Backend"
+  class="dd-item 
+        parent
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/">
+     <b> 5.4. </b> Xây dựng FastAPI Backend 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/"
+  title="Thiết lập Lambda và API Gateway"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/">
+     <b> 5.4.1. </b> Thiết lập Lambda và API Gateway 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
+  title="Cấu hình DynamoDB"
+  class="dd-item 
+        
+        active
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/">
+     <b> 5.4.2. </b> Cấu hình DynamoDB 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/"
+  title="Triển khai xác thực Cognito"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/">
+     <b> 5.4.3. </b> Triển khai xác thực Cognito 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/"
+  title="Test và xác thực Backend"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/">
+     <b> 5.4.4. </b> Test và xác thực Backend 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.5-policy/"
+  title="Monitoring &amp; Observability"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.5-policy/">
+     <b> 5.5. </b> Monitoring &amp; Observability 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.6-cleanup/"
+  title="Dọn dẹp tài nguyên"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.6-cleanup/">
+     <b> 5.6. </b> Dọn dẹp tài nguyên 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/6-self-evaluation/"
+  title="Tự Đánh Giá (Self-Assessment)"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/6-self-evaluation/">
+     <b> 6. </b> Tự Đánh Giá (Self-Assessment) 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/7-feedback/"
+  title="Chia sẻ, đóng góp ý kiến"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/7-feedback/">
+     <b> 7. </b> Chia sẻ, đóng góp ý kiến 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+    </ul>
+
+     
+    <section id="shortcuts">
+      <h3>
+        More
+      </h3>
+      <ul>
+        
+        <li>
+          <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"
+            ><i class='fab fa-facebook'></i> AWS Study Group</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+     
+    <section id="prefooter">
+      <hr />
+      <ul>
+        
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+            <div class="select-style">
+              <select id="select-language" onchange="location = this.value;">
+                       
+                <option
+                  id="en"
+                  value="http://localhost:1313/aws-report-fcj/en/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
+                >
+                  English
+                </option>
+                            
+                <option
+                  id="vi"
+                  value="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
+                  selected
+                >
+                  Tiếng Việt
+                </option>
+                   
+              </select>
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="255px"
+                height="255px"
+                viewBox="0 0 255 255"
+                style="enable-background: new 0 0 255 255"
+                xml:space="preserve"
+              >
+                <g>
+                  <g id="arrow-drop-down">
+                    <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </a>
+        </li>
+         
+        <li>
+          <a class="padding" href="#" data-clear-history-toggle=""
+            ><i class="fas fa-history fa-fw"></i> Clear History</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+    
+    <section id="footer"><left>
+    
+    <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Migrate" Alt="web counter" border="0" /></a> <br>
+    <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Total CLoud Journey" Alt="web counter" border="0" />
+
+</left>
+<left>
+    <br>
+    <br>
+    <b>Last Updated</b><br>
+    <i>
+        <span id="lastUpdated" style="color:orange;"></span>
+    </i>
+
+    <script>
+        
+        const today = new Date();
+        
+        const formattedDate = today.toLocaleDateString('en-GB');
+        
+        document.getElementById('lastUpdated').textContent = formattedDate;
+    </script>
+</left>
+<left>
+    <br>
+    <br>
+    <b> Team </b> <br>
+
+    <i> <a href="https://www.facebook.com/groups/660548818043427" style="color:orange">First Cloud Journey </a> <br>
+
+    </i>
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script></section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='http://localhost:1313/aws-report-fcj/vi/'>Báo cáo thực tập </a> > <a href='http://localhost:1313/aws-report-fcj/vi/5-workshop/'>Workshop</a> > <a href='http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/'>Xây dựng FastAPI Backend</a> > Cấu hình DynamoDB
+          
+        
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+  <div class="wrapper"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#cấu-hình-dynamodb">Cấu hình DynamoDB</a>
+      <ul>
+        <li><a href="#bước-1-thiết-kế-schema-bảng">Bước 1: Thiết kế Schema bảng</a></li>
+        <li><a href="#bước-2-tạo-bảng-dynamodb-với-terraform">Bước 2: Tạo bảng DynamoDB với Terraform</a></li>
+        <li><a href="#bước-3-tạo-qua-aws-console">Bước 3: Tạo qua AWS Console</a></li>
+        <li><a href="#bước-4-tạo-global-secondary-index">Bước 4: Tạo Global Secondary Index</a></li>
+        <li><a href="#bước-5-cấu-hình-auto-scaling-tùy-chọn">Bước 5: Cấu hình Auto Scaling (Tùy chọn)</a></li>
+        <li><a href="#bước-6-tích-hợp-lambda">Bước 6: Tích hợp Lambda</a></li>
+        <li><a href="#bước-7-xác-minh-tạo-bảng">Bước 7: Xác minh tạo bảng</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Cấu hình DynamoDB
+            </h1>
+          
+
+        
+
+
+
+	<h2 id="cấu-hình-dynamodb">Cấu hình DynamoDB</h2>
+<p>Trong phần này, bạn sẽ tạo và cấu hình bảng DynamoDB để lưu trữ dữ liệu ứng dụng.</p>
+<h3 id="bước-1-thiết-kế-schema-bảng">Bước 1: Thiết kế Schema bảng</h3>
+<p>Cho ứng dụng serverless, chúng ta sẽ tạo bảng với thiết kế sau:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Thuộc tính</th>
+          <th>Loại</th>
+          <th>Loại Key</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>PK</code></td>
+          <td>String</td>
+          <td>Partition Key</td>
+      </tr>
+      <tr>
+          <td><code>SK</code></td>
+          <td>String</td>
+          <td>Sort Key</td>
+      </tr>
+      <tr>
+          <td><code>data</code></td>
+          <td>Map</td>
+          <td>-</td>
+      </tr>
+      <tr>
+          <td><code>createdAt</code></td>
+          <td>String</td>
+          <td>-</td>
+      </tr>
+      <tr>
+          <td><code>updatedAt</code></td>
+          <td>String</td>
+          <td>-</td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="http://localhost:1313/aws-report-fcj/images/5-Workshop/5.4-Backend/5.4.2/dynamodb-design.png" alt="DynamoDB Table Design"></p>
+<h3 id="bước-2-tạo-bảng-dynamodb-với-terraform">Bước 2: Tạo bảng DynamoDB với Terraform</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hcl" data-lang="hcl"><span style="display:flex;"><span><span style="color:#75715e"># dynamodb/main.tf
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_dynamodb_table&#34; &#34;main&#34;</span> {
+</span></span><span style="display:flex;"><span>  name           <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;secure-serverless-table&#34;</span>
+</span></span><span style="display:flex;"><span>  billing_mode   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;PAY_PER_REQUEST&#34;</span><span style="color:#75715e">  # On-demand capacity
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  hash_key       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;PK&#34;</span>
+</span></span><span style="display:flex;"><span>  range_key      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SK&#34;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">attribute</span> {
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;PK&#34;</span>
+</span></span><span style="display:flex;"><span>    type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;S&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">attribute</span> {
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SK&#34;</span>
+</span></span><span style="display:flex;"><span>    type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;S&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">attribute</span> {
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GSI1PK&#34;</span>
+</span></span><span style="display:flex;"><span>    type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;S&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">attribute</span> {
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GSI1SK&#34;</span>
+</span></span><span style="display:flex;"><span>    type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;S&#34;</span>
+</span></span><span style="display:flex;"><span>  }<span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  # Global Secondary Index
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">global_secondary_index</span> {
+</span></span><span style="display:flex;"><span>    name            <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GSI1&#34;</span>
+</span></span><span style="display:flex;"><span>    hash_key        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GSI1PK&#34;</span>
+</span></span><span style="display:flex;"><span>    range_key       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GSI1SK&#34;</span>
+</span></span><span style="display:flex;"><span>    projection_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ALL&#34;</span>
+</span></span><span style="display:flex;"><span>  }<span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  # Bật Point-in-Time Recovery
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">point_in_time_recovery</span> {
+</span></span><span style="display:flex;"><span>    enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  }<span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  # Bật server-side encryption với KMS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">server_side_encryption</span> {
+</span></span><span style="display:flex;"><span>    enabled     <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    kms_key_arn <span style="color:#f92672">=</span> <span style="color:#66d9ef">var</span>.<span style="color:#66d9ef">kms_key_arn</span>
+</span></span><span style="display:flex;"><span>  }<span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  # Bật TTL cho tự động xóa item
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">ttl</span> {
+</span></span><span style="display:flex;"><span>    attribute_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;expiresAt&#34;</span>
+</span></span><span style="display:flex;"><span>    enabled        <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  tags <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    Environment <span style="color:#f92672">=</span> <span style="color:#66d9ef">var</span>.<span style="color:#66d9ef">environment</span>
+</span></span><span style="display:flex;"><span>    Project     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;secure-serverless&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="bước-3-tạo-qua-aws-console">Bước 3: Tạo qua AWS Console</h3>
+<ol>
+<li>Điều hướng đến <strong>DynamoDB Console</strong> → <strong>Create table</strong></li>
+<li>Cấu hình:
+<ul>
+<li><strong>Table name</strong>: <code>secure-serverless-table</code></li>
+<li><strong>Partition key</strong>: <code>PK</code> (String)</li>
+<li><strong>Sort key</strong>: <code>SK</code> (String)</li>
+<li><strong>Table settings</strong>: Customize settings</li>
+</ul>
+</li>
+</ol>
+<p><img src="http://localhost:1313/aws-report-fcj/images/5-Workshop/5.4-Backend/5.4.2/create-table.png" alt="Create DynamoDB Table"></p>
+<ol start="3">
+<li>
+<p>Cấu hình capacity:</p>
+<ul>
+<li>Chọn <strong>On-demand</strong> cho tự động scaling</li>
+</ul>
+</li>
+<li>
+<p>Bật mã hóa:</p>
+<ul>
+<li>Chọn <strong>AWS managed key</strong> hoặc custom KMS key của bạn</li>
+</ul>
+</li>
+</ol>
+<h3 id="bước-4-tạo-global-secondary-index">Bước 4: Tạo Global Secondary Index</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hcl" data-lang="hcl"><span style="display:flex;"><span><span style="color:#75715e"># Thêm GSI cho các access patterns khác nhau
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">global_secondary_index</span> {
+</span></span><span style="display:flex;"><span>  name            <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GSI1&#34;</span>
+</span></span><span style="display:flex;"><span>  hash_key        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GSI1PK&#34;</span>
+</span></span><span style="display:flex;"><span>  range_key       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;GSI1SK&#34;</span>
+</span></span><span style="display:flex;"><span>  projection_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ALL&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img src="http://localhost:1313/aws-report-fcj/images/5-Workshop/5.4-Backend/5.4.2/gsi-config.png" alt="GSI Configuration"></p>
+<h3 id="bước-5-cấu-hình-auto-scaling-tùy-chọn">Bước 5: Cấu hình Auto Scaling (Tùy chọn)</h3>
+<p>Nếu sử dụng provisioned capacity:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hcl" data-lang="hcl"><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_appautoscaling_target&#34; &#34;read_target&#34;</span> {
+</span></span><span style="display:flex;"><span>  max_capacity       <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>  min_capacity       <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>  resource_id        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;table/${aws_dynamodb_table.main.name}&#34;</span>
+</span></span><span style="display:flex;"><span>  scalable_dimension <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dynamodb:table:ReadCapacityUnits&#34;</span>
+</span></span><span style="display:flex;"><span>  service_namespace  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dynamodb&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_appautoscaling_policy&#34; &#34;read_policy&#34;</span> {
+</span></span><span style="display:flex;"><span>  name               <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;DynamoDBReadAutoScaling&#34;</span>
+</span></span><span style="display:flex;"><span>  policy_type        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;TargetTrackingScaling&#34;</span>
+</span></span><span style="display:flex;"><span>  resource_id        <span style="color:#f92672">=</span> <span style="color:#66d9ef">aws_appautoscaling_target</span>.<span style="color:#66d9ef">read_target</span>.<span style="color:#66d9ef">resource_id</span>
+</span></span><span style="display:flex;"><span>  scalable_dimension <span style="color:#f92672">=</span> <span style="color:#66d9ef">aws_appautoscaling_target</span>.<span style="color:#66d9ef">read_target</span>.<span style="color:#66d9ef">scalable_dimension</span>
+</span></span><span style="display:flex;"><span>  service_namespace  <span style="color:#f92672">=</span> <span style="color:#66d9ef">aws_appautoscaling_target</span>.<span style="color:#66d9ef">read_target</span>.<span style="color:#66d9ef">service_namespace</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">target_tracking_scaling_policy_configuration</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">predefined_metric_specification</span> {
+</span></span><span style="display:flex;"><span>      predefined_metric_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;DynamoDBReadCapacityUtilization&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    target_value <span style="color:#f92672">=</span> <span style="color:#ae81ff">70</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="bước-6-tích-hợp-lambda">Bước 6: Tích hợp Lambda</h3>
+<p>Cập nhật Lambda function để tương tác với DynamoDB:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dynamodb <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>resource(<span style="color:#e6db74">&#39;dynamodb&#39;</span>)
+</span></span><span style="display:flex;"><span>table <span style="color:#f92672">=</span> dynamodb<span style="color:#f92672">.</span>Table(os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#39;TABLE_NAME&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_item</span>(user_id, item_data):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Tạo item mới trong DynamoDB&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    timestamp <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>utcnow()<span style="color:#f92672">.</span>isoformat()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    item <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;PK&#39;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;USER#</span><span style="color:#e6db74">{</span>user_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;SK&#39;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;ITEM#</span><span style="color:#e6db74">{</span>timestamp<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;GSI1PK&#39;</span>: <span style="color:#e6db74">&#39;ITEM&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;GSI1SK&#39;</span>: timestamp,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;data&#39;</span>: item_data,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;createdAt&#39;</span>: timestamp,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;updatedAt&#39;</span>: timestamp
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    table<span style="color:#f92672">.</span>put_item(Item<span style="color:#f92672">=</span>item)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> item
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_user_items</span>(user_id):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Lấy tất cả items của user&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> table<span style="color:#f92672">.</span>query(
+</span></span><span style="display:flex;"><span>        KeyConditionExpression<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;PK = :pk AND begins_with(SK, :sk)&#39;</span>,
+</span></span><span style="display:flex;"><span>        ExpressionAttributeValues<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;:pk&#39;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;USER#</span><span style="color:#e6db74">{</span>user_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;:sk&#39;</span>: <span style="color:#e6db74">&#39;ITEM#&#39;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> response[<span style="color:#e6db74">&#39;Items&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_all_items</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Lấy tất cả items sử dụng GSI&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> table<span style="color:#f92672">.</span>query(
+</span></span><span style="display:flex;"><span>        IndexName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;GSI1&#39;</span>,
+</span></span><span style="display:flex;"><span>        KeyConditionExpression<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;GSI1PK = :pk&#39;</span>,
+</span></span><span style="display:flex;"><span>        ExpressionAttributeValues<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;:pk&#39;</span>: <span style="color:#e6db74">&#39;ITEM&#39;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        ScanIndexForward<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>  <span style="color:#75715e"># Mới nhất trước</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> response[<span style="color:#e6db74">&#39;Items&#39;</span>]
+</span></span></code></pre></div><h3 id="bước-7-xác-minh-tạo-bảng">Bước 7: Xác minh tạo bảng</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Liệt kê các bảng</span>
+</span></span><span style="display:flex;"><span>aws dynamodb list-tables
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Mô tả bảng</span>
+</span></span><span style="display:flex;"><span>aws dynamodb describe-table --table-name secure-serverless-table
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test put item</span>
+</span></span><span style="display:flex;"><span>aws dynamodb put-item <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --table-name secure-serverless-table <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --item <span style="color:#e6db74">&#39;{&#34;PK&#34;: {&#34;S&#34;: &#34;USER#test&#34;}, &#34;SK&#34;: {&#34;S&#34;: &#34;ITEM#001&#34;}, &#34;data&#34;: {&#34;S&#34;: &#34;test data&#34;}}&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Query items</span>
+</span></span><span style="display:flex;"><span>aws dynamodb query <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --table-name secure-serverless-table <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --key-condition-expression <span style="color:#e6db74">&#34;PK = :pk&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --expression-attribute-values <span style="color:#e6db74">&#39;{&#34;:pk&#34;: {&#34;S&#34;: &#34;USER#test&#34;}}&#39;</span>
+</span></span></code></pre></div><p><img src="http://localhost:1313/aws-report-fcj/images/5-Workshop/5.4-Backend/5.4.2/dynamodb-items.png" alt="DynamoDB Items"></p>
+
+<div
+  class="notices tip"
+  
+>
+  <p>Sử dụng single-table design patterns trong DynamoDB để có hiệu suất và chi phí tốt hơn. Thiết kế access patterns trước, sau đó tạo schema bảng.</p>
+
+</div>
+
+<h4 id="ảnh-cần-thiết">Ảnh cần thiết:</h4>
+<ul>
+<li><code>dynamodb-design.png</code> - Sơ đồ thiết kế schema bảng</li>
+<li><code>create-table.png</code> - Console tạo bảng DynamoDB</li>
+<li><code>gsi-config.png</code> - Cấu hình Global Secondary Index</li>
+<li><code>dynamodb-items.png</code> - Items trong bảng DynamoDB</li>
+</ul>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/" title="Thiết lập Lambda và API Gateway"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/" title="Triển khai xác thực Cognito" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="http://localhost:1313/aws-report-fcj/js/clipboard.min.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/perfect-scrollbar.min.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/perfect-scrollbar.jquery.min.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/jquery.sticky.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/featherlight.min.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/highlight.pack.js?1765038701"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://localhost:1313/aws-report-fcj/js/modernizr.custom-3.6.0.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/learn.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/hugo-learn.js?1765038701"></script>
+
+    <link href="http://localhost:1313/aws-report-fcj/mermaid/mermaid.css?1765038701" rel="stylesheet" />
+    <script src="http://localhost:1313/aws-report-fcj/mermaid/mermaid.js?1765038701"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    ((i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date()));
+    ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "https://www.google-analytics.com/analytics.js",
+    "ga",
+  );
+
+  ga("create", "UA-158079754-2", "auto");
+  ga("send", "pageview");
+</script>
+  </body>
+</html>

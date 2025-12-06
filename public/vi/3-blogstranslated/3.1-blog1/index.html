@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head><script src="/aws-report-fcj/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=aws-report-fcj/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.150.0">
+    <meta
+  name="description"
+  content=""
+/>
+<meta name="author" content="thienlh@thienlu.com" />
+
+    <link rel="icon" href="http://localhost:1313/aws-report-fcj/images/favicon.png" type="image/png">
+
+    <title>Blog 1 :: Báo cáo thực tập</title>
+
+    
+    <link href="http://localhost:1313/aws-report-fcj/css/nucleus.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/fontawesome-all.min.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/hybrid.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/featherlight.min.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/perfect-scrollbar.min.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/auto-complete.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/atom-one-dark-reasonable.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/theme.css?1765038701" rel="stylesheet">
+    <link href="http://localhost:1313/aws-report-fcj/css/hugo-theme.css?1765038701" rel="stylesheet">
+    
+    <link href="http://localhost:1313/aws-report-fcj/css/theme-workshop.css?1765038701" rel="stylesheet">
+    
+    
+
+    <script src="http://localhost:1313/aws-report-fcj/js/jquery-3.3.1.min.js?1765038701"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+
+  </head>
+  <body class="" data-url="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/3.1-blog1/">
+    <nav
+  id="sidebar"
+  class="showVisitedLinks"
+>
+   
+  <div id="header-wrapper">
+    <div id="header"><a id="logo" href="http://localhost:1313/aws-report-fcj/">
+  <svg
+    id="Layer_1"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 60 30"
+    width="30%"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #fff;
+        }
+        .cls-2 {
+          fill: #f90;
+          fill-rule: evenodd;
+        }
+      </style>
+    </defs>
+    <title>AWS-Logo_White-Color</title>
+    <path
+      class="cls-1"
+      d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"
+    ></path>
+  </svg>
+</a></div>
+     <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="http://localhost:1313/aws-report-fcj/js/lunr.min.js?1765038701"></script>
+<script type="text/javascript" src="http://localhost:1313/aws-report-fcj/js/auto-complete.js?1765038701"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/localhost:1313\/aws-report-fcj\/\/vi";
+    
+</script>
+<script type="text/javascript" src="http://localhost:1313/aws-report-fcj/js/search.js?1765038701"></script>
+ 
+  </div>
+
+  <div class="highlightable">
+    <ul class="topics">
+               
+<li
+  data-nav-id="/vi/1-worklog/"
+  title="Nhật ký công việc"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/">
+     <b> 1. </b> Nhật ký công việc 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/1-worklog/1.1-week1/"
+  title="Tuần 1 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.1-week1/">
+     <b> 1.1. </b> Tuần 1 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.2-week2/"
+  title="Tuần 2 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.2-week2/">
+     <b> 1.2. </b> Tuần 2 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.3-week3/"
+  title="Tuần 3 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.3-week3/">
+     <b> 1.3. </b> Tuần 3 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.4-week4/"
+  title="Tuần 4 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.4-week4/">
+     <b> 1.4. </b> Tuần 4 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.5-week5/"
+  title="Tuần 5 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.5-week5/">
+     <b> 1.5. </b> Tuần 5 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.7-week7/"
+  title="Tuần 7 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.7-week7/">
+     <b> 1.7. </b> Tuần 7 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.8-week8/"
+  title="Tuần 8 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.8-week8/">
+     <b> 1.8. </b> Tuần 8 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.9-week9/"
+  title="Tuần 9 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.9-week9/">
+     <b> 1.9. </b> Tuần 9 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.10-week10/"
+  title="Tuần 10 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.10-week10/">
+     <b> 1.10. </b> Tuần 10 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.11-week11/"
+  title="Tuần 11 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.11-week11/">
+     <b> 1.11. </b> Tuần 11 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.12-week12/"
+  title="Tuần 12 - Worklog"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.12-week12/">
+     <b> 1.12. </b> Tuần 12 - Worklog 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.6-week6/"
+  title=""
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/1-worklog/1.6-week6/">
+     
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/2-proposal/"
+  title="Bản đề xuất"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/2-proposal/">
+     <b> 2. </b> Bản đề xuất 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/3-blogstranslated/"
+  title="Các bài blogs đã dịch"
+  class="dd-item 
+        parent
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/">
+     <b> 3. </b> Các bài blogs đã dịch 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.1-blog1/"
+  title="Blog 1"
+  class="dd-item 
+        
+        active
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/3.1-blog1/">
+     <b> 3.1. </b> Blog 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.2-blog2/"
+  title="blog 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/3.2-blog2/">
+     <b> 3.2. </b> blog 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.3-blog3/"
+  title="Blog 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/3.3-blog3/">
+     <b> 3.3. </b> Blog 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/4-eventparticipated/"
+  title="Các events đã tham gia"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/">
+     <b> 4. </b> Các events đã tham gia 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.1-event1/"
+  title="Event 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/4.1-event1/">
+     <b> 4.1. </b> Event 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.2-event2/"
+  title="Sự kiện 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/4.2-event2/">
+     <b> 4.2. </b> Sự kiện 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.3-event3/"
+  title="Event 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/4.3-event3/">
+     <b> 4.3. </b> Event 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.4-event4/"
+  title="Event 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/4.4-event4/">
+     <b> 4.4. </b> Event 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.5-event5/"
+  title="Event 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/4-eventparticipated/4.5-event5/">
+     <b> 4.5. </b> Event 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/5-workshop/"
+  title="Workshop"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/">
+     <b> 5. </b> Workshop 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.1-workshop-overview/"
+  title="Tổng quan Workshop"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.1-workshop-overview/">
+     <b> 5.1. </b> Tổng quan Workshop 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.2-prerequiste/"
+  title="Chuẩn bị"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.2-prerequiste/">
+     <b> 5.2. </b> Chuẩn bị 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/"
+  title="Thiết lập Pipeline CI/CD"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.3-s3-vpc/">
+     <b> 5.3. </b> Thiết lập Pipeline CI/CD 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/"
+  title="Tạo CodePipeline và CodeBuild"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/">
+     <b> 5.3.1. </b> Tạo CodePipeline và CodeBuild 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/"
+  title="Cấu hình quét bảo mật"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/">
+     <b> 5.3.2. </b> Cấu hình quét bảo mật 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/"
+  title="Xây dựng FastAPI Backend"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/">
+     <b> 5.4. </b> Xây dựng FastAPI Backend 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/"
+  title="Thiết lập Lambda và API Gateway"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/">
+     <b> 5.4.1. </b> Thiết lập Lambda và API Gateway 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
+  title="Cấu hình DynamoDB"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/">
+     <b> 5.4.2. </b> Cấu hình DynamoDB 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/"
+  title="Triển khai xác thực Cognito"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/">
+     <b> 5.4.3. </b> Triển khai xác thực Cognito 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/"
+  title="Test và xác thực Backend"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/">
+     <b> 5.4.4. </b> Test và xác thực Backend 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.5-policy/"
+  title="Monitoring &amp; Observability"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.5-policy/">
+     <b> 5.5. </b> Monitoring &amp; Observability 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.6-cleanup/"
+  title="Dọn dẹp tài nguyên"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/5-workshop/5.6-cleanup/">
+     <b> 5.6. </b> Dọn dẹp tài nguyên 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/6-self-evaluation/"
+  title="Tự Đánh Giá (Self-Assessment)"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/6-self-evaluation/">
+     <b> 6. </b> Tự Đánh Giá (Self-Assessment) 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/7-feedback/"
+  title="Chia sẻ, đóng góp ý kiến"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="http://localhost:1313/aws-report-fcj/vi/7-feedback/">
+     <b> 7. </b> Chia sẻ, đóng góp ý kiến 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+    </ul>
+
+     
+    <section id="shortcuts">
+      <h3>
+        More
+      </h3>
+      <ul>
+        
+        <li>
+          <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"
+            ><i class='fab fa-facebook'></i> AWS Study Group</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+     
+    <section id="prefooter">
+      <hr />
+      <ul>
+        
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+            <div class="select-style">
+              <select id="select-language" onchange="location = this.value;">
+                       
+                <option
+                  id="en"
+                  value="http://localhost:1313/aws-report-fcj/en/3-blogstranslated/3.1-blog1/"
+                >
+                  English
+                </option>
+                            
+                <option
+                  id="vi"
+                  value="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/3.1-blog1/"
+                  selected
+                >
+                  Tiếng Việt
+                </option>
+                   
+              </select>
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="255px"
+                height="255px"
+                viewBox="0 0 255 255"
+                style="enable-background: new 0 0 255 255"
+                xml:space="preserve"
+              >
+                <g>
+                  <g id="arrow-drop-down">
+                    <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </a>
+        </li>
+         
+        <li>
+          <a class="padding" href="#" data-clear-history-toggle=""
+            ><i class="fas fa-history fa-fw"></i> Clear History</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+    
+    <section id="footer"><left>
+    
+    <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Migrate" Alt="web counter" border="0" /></a> <br>
+    <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Total CLoud Journey" Alt="web counter" border="0" />
+
+</left>
+<left>
+    <br>
+    <br>
+    <b>Last Updated</b><br>
+    <i>
+        <span id="lastUpdated" style="color:orange;"></span>
+    </i>
+
+    <script>
+        
+        const today = new Date();
+        
+        const formattedDate = today.toLocaleDateString('en-GB');
+        
+        document.getElementById('lastUpdated').textContent = formattedDate;
+    </script>
+</left>
+<left>
+    <br>
+    <br>
+    <b> Team </b> <br>
+
+    <i> <a href="https://www.facebook.com/groups/660548818043427" style="color:orange">First Cloud Journey </a> <br>
+
+    </i>
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script></section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='http://localhost:1313/aws-report-fcj/vi/'>Báo cáo thực tập </a> > <a href='http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/'>Các bài blogs đã dịch</a> > Blog 1
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+  <div class="wrapper"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-internet-of-things-on-aws"><em>The Internet of Things on AWS – Official Blog</em></a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#yasser-cảm-ơn-anh-đã-đồng-ý-chia-sẻ-những-hiểu-biết-với-chúng-tôi-ngày-hôm-nay-anh-có-thể-bắt-đầu-bằng-cách-cho-chúng-tôi-biết-một-chút-về-vai-trò-của-anh-tại-aws-và-kinh-nghiệm-trong-lĩnh-vực-iot-không"><strong>Yasser, cảm ơn anh đã đồng ý chia sẻ những hiểu biết với chúng tôi ngày hôm nay, anh có thể bắt đầu bằng cách cho chúng tôi biết một chút về vai trò của anh tại AWS và kinh nghiệm trong lĩnh vực IoT không?</strong></a></li>
+        <li><a href="#khi-đã-tham-gia-từ-những-ngày-đầu-của-iot-anh-nghĩ-gì-về-những-thay-đổi-hiện-tại-của-ngành-iot-và-điều-đó-có-ý-nghĩa-gì-đối-với-khách-hàng-và-các-nhà-cung-cấp-dịch-vụ"><strong>Khi đã tham gia từ những ngày đầu của IoT, anh nghĩ gì về những thay đổi hiện tại của ngành IoT và điều đó có ý nghĩa gì đối với khách hàng và các nhà cung cấp dịch vụ?</strong></a></li>
+        <li><a href="#tại-sao-các-giải-pháp-và-đối-tác-theo-ngành-dọc-lại-quan-trọng-đến-vậy-đối-với-aws-và-khách-hàng-của-mình"><strong>Tại sao các giải pháp và đối tác theo ngành dọc lại quan trọng đến vậy đối với AWS và khách hàng của mình?</strong></a></li>
+        <li><a href="#những-ngành-công-nghiệp-nào-đang-hưởng-lợi-từ-aws-iot"><strong>Những ngành công nghiệp nào đang hưởng lợi từ AWS IoT?</strong></a></li>
+        <li><a href="#những-xu-hướng-iot-nào-chúng-ta-nên-kỳ-vọng-khi-bước-vào-giai-đoạn-tiếp-theo"><strong>Những xu hướng IoT nào chúng ta nên kỳ vọng khi bước vào giai đoạn tiếp theo?</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Blog 1
+            </h1>
+          
+
+        
+
+
+
+	<h2 id="the-internet-of-things-on-aws"><a href="https://aws.amazon.com/blogs/iot/"><em>The Internet of Things on AWS &ndash; Official Blog</em></a></h2>
+<h1 id="chia-sẻ-tầm-nhìn-về-một-thế-giới-kết-nối-hơn-cùng-aws-iot"><em>Chia sẻ tầm nhìn về một thế giới kết nối hơn cùng AWS IoT</em></h1>
+<p><em><strong>by Rachel Burke-Smalley on 03 MAY 2023 in <a href="https://aws.amazon.com/blogs/iot/category/artificial-intelligence/sagemaker/">Amazon SageMaker</a>, <a href="https://aws.amazon.com/blogs/iot/category/industries/automotive/">Automotive</a>, <a href="https://aws.amazon.com/blogs/iot/category/internet-of-things/aws-iot-platform/">AWS IoT Core</a>, <a href="https://aws.amazon.com/blogs/iot/category/internet-of-things/aws-iot-expresslink/">AWS IoT ExpressLink</a>, <a href="https://aws.amazon.com/blogs/iot/category/internet-of-things/aws-iot-fleetwise/">AWS IoT FleetWise</a>, <a href="https://aws.amazon.com/blogs/iot/category/internet-of-things/aws-greengrass/">AWS IoT Greengrass</a>, <a href="https://aws.amazon.com/blogs/iot/category/internet-of-things/aws-iot-sitewise/">AWS IoT SiteWise</a>, <a href="https://aws.amazon.com/blogs/iot/category/internet-of-things/aws-iot-twinmaker/">AWS IoT TwinMaker</a>, <a href="https://aws.amazon.com/blogs/iot/category/robotics/aws-robomaker/">AWS RoboMaker</a>, <a href="https://aws.amazon.com/blogs/iot/category/industries/cpg/">CPG</a>, <a href="https://aws.amazon.com/blogs/iot/category/industries/oil-and-gas/">Energy (Oil &amp; Gas)</a>, <a href="https://aws.amazon.com/blogs/iot/category/internet-of-things/">Internet of Things</a>, <a href="https://aws.amazon.com/blogs/iot/category/analytics/amazon-kinesis/amazon-kinesis-video-streams/">Kinesis Video Streams</a>, <a href="https://aws.amazon.com/blogs/iot/category/industries/manufacturing/">Manufacturing</a>, <a href="https://aws.amazon.com/blogs/iot/category/robotics/">Robotics</a>, <a href="https://aws.amazon.com/blogs/iot/category/post-types/thought-leadership/">Thought Leadership</a></strong></em></p>
+<p><strong>AWS IoT VP, Yasser Alsaied, chia sẻ chiến lược IoT, cam kết và tầm nhìn</strong>
+<img src="http://localhost:1313/aws-report-fcj/images/profile.png" alt=""></p>
+<blockquote>
+<p><strong>Giới thiệu</strong><br>
+Tương lai của Internet of Things (IoT) luôn là chủ đề được thảo luận và suy đoán liên tục. Với những tác động đến các hyperscaler IoT, nhà cung cấp và khách hàng, bức tranh đang thay đổi nhanh chóng. Để làm sáng tỏ chủ đề này, tôi đã trò chuyện với Yasser Alsaied, Phó Chủ tịch phụ trách IoT tại Amazon Web Services (AWS). Trong blog này, chúng ta sẽ khám phá những quan điểm của Yasser về tương lai công nghệ IoT, chiến lược, sự phát triển của ngành, và cách những điều đó sẽ ảnh hưởng đến hệ sinh thái IoT.</p></blockquote>
+<h3 id="yasser-cảm-ơn-anh-đã-đồng-ý-chia-sẻ-những-hiểu-biết-với-chúng-tôi-ngày-hôm-nay-anh-có-thể-bắt-đầu-bằng-cách-cho-chúng-tôi-biết-một-chút-về-vai-trò-của-anh-tại-aws-và-kinh-nghiệm-trong-lĩnh-vực-iot-không"><strong>Yasser, cảm ơn anh đã đồng ý chia sẻ những hiểu biết với chúng tôi ngày hôm nay, anh có thể bắt đầu bằng cách cho chúng tôi biết một chút về vai trò của anh tại AWS và kinh nghiệm trong lĩnh vực IoT không?</strong></h3>
+<p>Tổng cộng, tôi có khoảng 32 năm kinh nghiệm trong ngành công nghệ và IoT. Tôi gia nhập AWS vào năm 2021 với vai trò phó chủ tịch phụ trách IoT. Tôi lãnh đạo mảng kinh doanh IoT của AWS, bao gồm Robotics, Industrial, Automotive, Consumer, Public Sector và Commercial segments. Các dịch vụ của chúng tôi nằm trong số những dịch vụ IoT có mức kết nối cao nhất trên toàn cầu và tiếp tục phát triển trong các lĩnh vực digital twins, smart cities, và connected vehicles.</p>
+<p>Trước khi gia nhập AWS, tôi làm việc tại Qualcomm với vai trò phó chủ tịch phụ trách IoT. Trong thời gian ở Qualcomm, tôi đã đảm nhận nhiều vị trí lãnh đạo, bao gồm việc ra mắt chip mạng cục bộ không dây (WLAN) đầu tiên của Qualcomm dành cho điện thoại di động, Qualcomm Innovation Center, và Code Aurora Foundation nhằm giải quyết các vấn đề pháp lý và vận hành liên quan đến việc phát hành phần mềm mã nguồn mở. Trong bốn năm cuối cùng ở Qualcomm, tôi đã quản lý hệ sinh thái IoT của họ và dẫn dắt chiến lược mở rộng các chipset IoT, bao gồm các công nghệ then chốt như trí tuệ nhân tạo (AI), computer vision, drones, robotics, và 5G. Trước Qualcomm, tôi phát triển phần mềm cho các ứng dụng quân sự, làm việc với U.S. Space and Rocket Center, Raytheon, Lockheed Martin Missiles and Fire Control, và Coleman Aerospace.</p>
+<h3 id="khi-đã-tham-gia-từ-những-ngày-đầu-của-iot-anh-nghĩ-gì-về-những-thay-đổi-hiện-tại-của-ngành-iot-và-điều-đó-có-ý-nghĩa-gì-đối-với-khách-hàng-và-các-nhà-cung-cấp-dịch-vụ"><strong>Khi đã tham gia từ những ngày đầu của IoT, anh nghĩ gì về những thay đổi hiện tại của ngành IoT và điều đó có ý nghĩa gì đối với khách hàng và các nhà cung cấp dịch vụ?</strong></h3>
+<p>Khi ngành IoT phát triển, chúng tôi tiếp tục thấy sự quan tâm và áp dụng IoT rất mạnh mẽ từ phía khách hàng. Chúng tôi không cho rằng sự tăng trưởng của IoT sẽ chậm lại trong thời gian tới. Tuy nhiên, rõ ràng vai trò của các IoT hyperscalers đang thay đổi, và phần lớn điều này gắn liền với sự chuyển dịch của ngành sang các giải pháp chuyên biệt theo ngành dọc (verticalized solutions) thay vì cung cấp IoT như một dịch vụ mang tính ngang (horizontal offering).</p>
+<p>Sự thay đổi này là vì lợi ích tốt nhất của khách hàng, bởi họ chưa bao giờ đến với chúng tôi và nói rằng “chúng tôi cần IoT”. Thay vào đó, họ đến với chúng tôi với mong muốn đạt được kết quả kinh doanh cụ thể, và cần sự hỗ trợ trong việc xác định cách họ có thể tận dụng công nghệ để giám sát, kiểm soát và tối ưu hóa các quy trình kinh doanh nhằm đạt được kết quả đó. Điều mà sự thay đổi này mang lại cho các nhà cung cấp dịch vụ đám mây và phần mềm IoT là họ phải đặt IoT vào bối cảnh của những thách thức riêng biệt trong từng ngành, bằng cách cung cấp các giải pháp và đối tác tập trung theo ngành, nhằm tạo ra giá trị kinh doanh dựa trên năng lực nội bộ của khách hàng, yêu cầu về quy mô CNTT, và các trường hợp sử dụng (use cases).</p>
+<p><strong>Sự thay đổi vai trò này ảnh hưởng đến chiến lược của AWS như thế nào?</strong><br>
+Tại AWS, chúng tôi đã lấy phương pháp tiếp cận theo ngành làm “ngôi sao Bắc Đẩu” trong chiến lược IoT. Để phục vụ khách hàng tốt hơn, chúng tôi đã vertical hóa các dịch vụ IoT và AI nhằm tối ưu hóa kết quả cho từng phân khúc. Ví dụ, <a href="https://aws.amazon.com/iot-sitewise/?nc=sn&amp;loc=2&amp;dn=9">[AWS IoT SiteWise]</a> và <a href="https://aws.amazon.com/iot-sitewise/?nc2=type_a">[AWS IoT TwinMaker]</a> được xây dựng để hỗ trợ khách hàng Industrial IoT trong việc thu thập, tổ chức và phân tích dữ liệu công nghiệp, cũng như tạo digital twins cho môi trường công nghiệp thực tế. <a href="https://aws.amazon.com/iot-fleetwise/">[AWS IoT FleetWise]</a> hỗ trợ khách hàng Automotive và xe kết nối. Chúng tôi cũng hợp tác với các đối tác tập trung theo ngành để xây dựng giải pháp. Nguyên tắc của chúng tôi là tái cấu trúc sản phẩm IoT, sales, và hỗ trợ để phù hợp với từng ngành, từ đó đáp ứng nhu cầu khách hàng hiệu quả hơn.</p>
+<h3 id="tại-sao-các-giải-pháp-và-đối-tác-theo-ngành-dọc-lại-quan-trọng-đến-vậy-đối-với-aws-và-khách-hàng-của-mình"><strong>Tại sao các giải pháp và đối tác theo ngành dọc lại quan trọng đến vậy đối với AWS và khách hàng của mình?</strong></h3>
+<p>Một số khách hàng khi bắt đầu với IoT gặp khó khăn trong việc chuyển từ proof of concept sang sản xuất, mở rộng quy mô, và tích hợp tất cả các dịch vụ cần thiết. Có quá nhiều thành phần cần kết hợp trong một workload, và khách hàng không quan tâm dịch vụ nào được bao gồm hay cách chúng được tích hợp. Thay vào đó, họ chỉ muốn những giải pháp tập trung theo ngành, được đặt trong bối cảnh các thách thức cụ thể, và dễ dàng quản lý, thích nghi, mở rộng cũng như nhân rộng.</p>
+<p>Do đó, một phần quan trọng trong chiến lược IoT của chúng tôi là tập trung vào các AWS và Partner Solutions theo ngành dọc, cung cấp mã code sẵn sàng triển khai, cấu hình, và hướng dẫn kiến trúc có thể tùy chỉnh cho từng trường hợp sử dụng cụ thể. Cách tiếp cận của chúng tôi luôn bắt đầu bằng việc hiểu tầm nhìn và thách thức độc đáo của khách hàng, chẳng hạn như cải thiện năng suất (yield) hoặc quản lý đội xe (fleet management). Từ đó, chúng tôi xây dựng ngược lại, thiết kế một giải pháp phù hợp với nhu cầu cụ thể của họ.</p>
+<p>Sử dụng nền tảng đám mây đáng tin cậy và có khả năng mở rộng của chúng tôi, với hơn 200 dịch vụ bao gồm AI, machine learning, analytics, compute, networking, và storage, chúng tôi cho phép xây dựng các giải pháp kết hợp tất cả các yếu tố cần thiết. Khi cần một thứ gì đó mới được xây dựng trên nền tảng này, chúng tôi tận dụng mạng lưới đối tác của mình để tạo ra các giải pháp phù hợp với từng khách hàng, nhưng đồng thời cũng có thể mang lại lợi ích cho những khách hàng khác trong cùng ngành. Công thức dịch vụ này có thể được nhân rộng trên toàn cầu, giúp tăng tốc quá trình.</p>
+<p>Một sáng kiến quan trọng khác của chúng tôi là tiếp tục phát triển và hợp tác với <a href="https://aws.amazon.com/partners/work-with-partners/?nc2=h_ql_pa_wwap_cp">[AWS Partner Network]</a> (APN), bởi chúng tôi hiểu rằng việc khách hàng có thể tiếp cận nhiều loại đối tác khác nhau là rất quan trọng, nhằm lấp đầy khoảng trống kỹ năng, đáp ứng yêu cầu về quy mô, và chuyên môn hóa trong các trường hợp sử dụng theo ngành dọc. Những người có thể hỗ trợ ở nhiều giai đoạn khác nhau của vòng đời thiết kế IoT. Các đối tác ISV cung cấp các giải pháp phần mềm dựng sẵn, có thể được tích hợp lên trên nền tảng và dịch vụ IoT của chúng tôi để tăng cường khả năng và tính năng. Khi khách hàng cần tùy chỉnh để đáp ứng chính xác yêu cầu của họ, họ có thể làm việc với một SI chuyên môn cao để giúp tích hợp nhiều hệ thống và công nghệ khác nhau thành một giải pháp thống nhất, mà không cần phải đầu tư thêm nguồn lực kỹ sư nội bộ mới.</p>
+<p>*<em>Ngoài việc theo đuổi giải pháp theo chiều dọc, tương lai của IoT tại AWS sẽ ra sao? AWS đang đặt cược lớn vào đâu?*</em>
+Đã có rất nhiều suy đoán về những gì chúng tôi sẽ làm tiếp theo, và tôi có thể khẳng định rằng chúng tôi vẫn cam kết mạnh mẽ trong việc liên tục đổi mới và làm cho khách hàng dễ dàng hơn, tiết kiệm chi phí hơn để hiện thực hóa các giải pháp IoT. Trong hai năm kể từ khi tôi gia nhập AWS, chúng tôi đã ra mắt các dịch vụ chuyên biệt mới như AWS IoT FleetWise, <a href="https://aws.amazon.com/iot-expresslink/">[AWS IoT ExpressLink]</a>, và AWS IoT TwinMaker. Kho thiết bị đủ điều kiện của chúng tôi đã phát triển lên hơn <a href="https://partners.amazonaws.com/search/qualified-devices?page=1&amp;redirected=true">[800 partner devices]</a>. Chúng tôi đã công bố <a href="https://aws.amazon.com/about-aws/whats-new/2022/06/aws-iot-device-management-price-reduction-secure-tunneling/">[price reductions]</a> để thúc đẩy hiệu quả chi phí và triển khai hơn <a href="https://aws.amazon.com/about-aws/">[50 IoT feature updates]</a>, bao gồm cả <a href="https://aws.amazon.com/iot-core/sidewalk/">[AWS IoT Core for Amazon Sidewalk]</a> mới được công bố, giúp tăng cường <a href="https://aws.amazon.com/about-aws/whats-new/2023/03/aws-iot-core-deepens-integration-amazon-sidewalk/">[integration]</a> giữa <a href="https://aws.amazon.com/iot-core/?nc=sn&amp;loc=2&amp;dn=3">[AWS IoT Core]</a> và Amazon Sidewalk. Chúng tôi sẽ không dừng lại. Chúng tôi sẽ tiếp tục đầu tư mạnh mẽ vào IoT bởi vì đây là một thành phần không thể thiếu trong cách chúng tôi giải quyết các vấn đề của khách hàng và giúp họ mở rộng quy mô. Các trường hợp sử dụng như Industry 4.0 yêu cầu dữ liệu phải được quản lý và xử lý ở quy mô lớn, theo cách đáng tin cậy và an toàn. Dữ liệu vốn đã có sẵn, nhưng nếu không có IoT thì nó bị khóa trong các nhà máy và xưởng sản xuất tách biệt. IoT tạo điều kiện kết nối và mở khóa dữ liệu, giúp nhà máy thông minh trở thành hiện thực. IoT là một phần thiết yếu trong câu chuyện số hóa – dù đó là 5G, Wi-Fi 7, LPWAN, hoặc các công nghệ khác.</p>
+<p>Hơn nữa, cam kết của chúng tôi trong việc làm cho các giải pháp IoT dễ tiếp cận hơn gắn liền trực tiếp với những nỗ lực không ngừng của chúng tôi nhằm mở rộng khả năng điện toán biên (edge computing) và điện toán đám mây lai (hybrid cloud). Bằng cách mở rộng cơ sở hạ tầng, dịch vụ, giao diện lập trình ứng dụng (API), và công cụ của AWS tới các địa điểm biên như trung tâm dữ liệu tại chỗ, tháp 5G, và nhà máy thông minh, chúng tôi có thể mang lại tất cả lợi ích của đám mây cho các khối lượng công việc cần độ trễ thấp, yêu cầu lưu trữ dữ liệu tại chỗ, xử lý dữ liệu cục bộ, hoặc sự phụ thuộc phức tạp giữa các ứng dụng. Hiện nay, AWS cung cấp các dịch vụ IoT như <a href="https://aws.amazon.com/iot-sitewise/">[AWS IoT SiteWise Edge]</a> và <a href="https://aws.amazon.com/greengrass/?nc=sn&amp;loc=2&amp;dn=2">[AWS IoT Greengrass]</a> đóng vai trò như cổng biên (edge gateways), giúp việc thu thập, xử lý, và giám sát dữ liệu thiết bị ngay tại chỗ trở nên dễ dàng, đồng thời đưa trí tuệ đến các thiết bị biên. AWS cũng đang phát triển các chức năng để triển khai ứng dụng tại biên dễ dàng hơn, rút ngắn thời gian mang lại giá trị cho khách hàng và chuyển đổi chi phí đầu tư (CapEx) thành chi phí vận hành (OpEx).</p>
+<p>*<em>Tại sao IoT lại quan trọng đối với sự thành công của Amazon?*</em>
+Nhiều lĩnh vực kinh doanh cốt lõi của Amazon, chẳng hạn như hoạt động kho bãi, trung tâm hoàn tất đơn hàng, vận tải, hậu cần, cửa hàng và thiết bị, đều được hỗ trợ trực tiếp bởi các dịch vụ AWS IoT. Chúng tôi cũng là khách hàng của chính mình — và chúng tôi luôn ám ảnh với khách hàng — vì vậy dịch vụ phải là tốt nhất. Thông qua lượng khách hàng rộng lớn của chúng tôi, bao gồm cả Amazon, công nghệ này đã được kiểm chứng về độ tin cậy và khả năng mở rộng. Chúng tôi mạnh mẽ hơn khi gắn kết cùng nhau và được thúc đẩy bởi nhu cầu vận hành cốt lõi cũng như DNA đổi mới của Amazon.</p>
+<p>Ví dụ, IoT đóng vai trò quan trọng trong chuỗi hậu cần bán lẻ và quy trình mua sắm. Trên toàn cầu, Amazon có hơn 300 cơ sở vận hành được vận hành bởi IoT và các thiết bị biên như hơn 750.000 đơn vị robot tự hành. Quy mô này hỗ trợ 1,6 triệu gói hàng đi qua các trung tâm hoàn tất đơn hàng của họ mỗi ngày. <a href="https://edition.cnn.com/videos/tv/2023/03/24/decoded-internet-of-things-show-spc-intl.cnn">[Automation and robotics are a big part of this equation]</a>, và những công nghệ này đòi hỏi kiểm soát, kiểm tra và bảo trì theo thời gian thực để giữ cho chuỗi cung ứng của Amazon vận hành trơn tru như đồng hồ. Với AWS IoT, Amazon có thể thu thập và xử lý dữ liệu đo lường từ xa giúp các nhân viên vận hành giám sát hoạt động của họ, theo dõi lịch bảo trì quan trọng và đảm bảo tất cả các gói hàng được giao đúng hạn.</p>
+<p>Amazon cũng vận hành một đội xe tải lớn để lấy hàng trên khắp đất nước. Trước đây, tại nhiều Trung tâm Hoàn tất Amazon, các tài xế phải xếp hàng dài để làm thủ tục check-in và biết mình được phân công vào bến nào. Nhưng với AWS IoT, và cụ thể là dịch vụ chuyên biệt <a href="https://aws.amazon.com/kinesis/video-streams/?amazon-kinesis-video-streams-resources-blog.sort-by=item.additionalFields.createdDate&amp;amazon-kinesis-video-streams-resources-blog.sort-order=desc">[Amazon Kinesis Video Streams]</a>, chúng tôi đã hợp lý hóa quy trình check-in và check-out. Giờ đây, tài xế có thể tự động check-in và xem họ phải đến đâu ngay trên ứng dụng di động. Điều này đã tiết kiệm 775.000 giờ cho các tài xế và nhà vận tải trên khắp Bắc Mỹ chỉ riêng trong năm 2022. Ngoài ra, Amazon có ứng dụng Amazon Flex, ứng dụng này điều phối việc giao hàng tại hiện trường cho nhân viên giao hàng của Amazon. Flex gửi và nhận dữ liệu tới hàng chục dịch vụ backend thông qua AWS IoT, xử lý tới 22.000 giao dịch mỗi giây để điều phối việc giao hàng. Cuối cùng, khi bạn mua sắm tại các cửa hàng bán lẻ thực tế, nhiều cửa hàng của Amazon và bên thứ ba sử dụng công nghệ Just Walk Out để bỏ qua quầy thanh toán. Để vào cửa hàng, khách hàng có thể sử dụng Amazon Shopping App, Amazon One, hoặc thẻ tín dụng, chỉ cần lấy sản phẩm họ muốn và rời đi, khiến việc mua sắm nhanh chóng và thuận tiện hơn. Tôi đã tự mình trải nghiệm điều này và tôi rất ấn tượng với sự tiện lợi. Just Walk Out sử dụng Kinesis Video Streams để truyền video từ camera trong cửa hàng lên AWS, từ đó chạy các thuật toán thị giác máy tính tiên tiến cho phép người mua bước vào cửa hàng, lấy những gì họ muốn, rồi rời đi.</p>
+<p>Việc trở thành khách hàng của chính mình cũng mang đến những thách thức riêng. Quy mô khổng lồ mà Amazon vận hành trên toàn cầu khiến cho AWS IoT phải hỗ trợ thiết bị, luồng dữ liệu viễn trắc và bảo mật ở cùng quy mô. Các triển khai nội bộ của chúng tôi tiếp tục mang lại những bài học mới giúp dịch vụ trở nên mạnh mẽ hơn, hiệu quả hơn và tiết kiệm chi phí hơn để khách hàng được hưởng lợi.</p>
+<h3 id="những-ngành-công-nghiệp-nào-đang-hưởng-lợi-từ-aws-iot"><strong>Những ngành công nghiệp nào đang hưởng lợi từ AWS IoT?</strong></h3>
+<p>Trong thập kỷ qua, IoT đã phát triển từ một công nghệ mang tính khát vọng trở thành một yếu tố tạo khác biệt cốt lõi mà các doanh nghiệp đang sử dụng để giải quyết vấn đề và tạo ra giá trị thông qua tăng trưởng doanh thu, cải thiện vận hành, và đổi mới. Đối với người tiêu dùng (consumer), chúng tôi hợp tác với nhiều nhà sản xuất thiết bị gốc (Original Equipment Manufacturer – OEM) và nhà sản xuất thiết kế gốc (Original Design Manufacturer – ODM) với các thiết bị kết nối. Họ có thể nhanh chóng xây dựng các sản phẩm an toàn, kết nối thiết bị, và hỗ trợ khả năng mở rộng cũng như độ tin cậy. Một ví dụ là Rachio, công ty này sử dụng AWS IoT để kết nối an toàn các thiết bị của mình với các ứng dụng đám mây và các thiết bị khác. AWS IoT cũng đã mang đến cho <a href="https://aws.amazon.com/solutions/case-studies/?trk=cr_card">[Rachio]</a> một lối vào liền mạch với các dịch vụ AWS khác, chẳng hạn như <a href="https://aws.amazon.com/elasticbeanstalk/">[AWS Elastic Beanstalk]</a> để triển khai và quản lý website, ứng dụng web, và hạ tầng API của họ. Gần đây nhất, Rachio bắt đầu sử dụng Amazon Alexa Skills Kit để kích hoạt tính năng điều khiển bằng giọng nói cho phiên bản thứ hai của Rachio Smart Sprinkler Controller. Với các khả năng bảo mật của AWS IoT, Rachio đã giảm 40% chi phí phát triển và không còn phải lo lắng về việc quản lý tính sẵn sàng và khả năng mở rộng.</p>
+<p>Trong công nghiệp và sản xuất (industrial and manufacturing), chúng tôi hợp tác với khách hàng để cải thiện hiệu suất quy trình và năng suất, theo dõi hàng tồn kho, quản lý vận hành, và an toàn. Một ví dụ là khách hàng của chúng tôi, <a href="https://aws.amazon.com/solutions/case-studies/coca-cola-iot-sitewise/?did=cr_card&amp;trk=cr_card">[Coca-Cola İçecek (CCI)]</a>, đã sử dụng AWS IoT để số hóa sàn nhà máy và quy trình sản xuất của họ, nhằm tạo ra một giải pháp digital twin hoàn chỉnh có thể mở rộng đến tất cả 26 nhà máy đóng chai. Trong vòng hai tháng, họ đã xây dựng một giải pháp phân tích số tiên tiến cho quy trình vệ sinh dây chuyền của mình bằng cách sử dụng AWS IoT SiteWise và AWS IoT Greengrass. Thông qua đó, họ đã cải thiện hiệu quả quy trình và tính bền vững môi trường, cho phép tiết kiệm 20% năng lượng và 9% nước mỗi năm. Trong khu vực công, thành phố thông minh (smart cities), và giao thông vận tải (transportation), khách hàng đang sử dụng IoT để cải thiện vận hành, logistics, hỗ trợ tại biên chiến thuật (tactical edge), và quản lý giao thông cũng như an toàn công cộng.</p>
+<p>Trong tòa nhà thương mại và thông minh (commercial and smart buildings), khách hàng tìm cách cải thiện trải nghiệm bán lẻ và nâng cao tính bền vững của các tòa nhà. Cuối cùng, trong Robotics, khách hàng đang sử dụng dịch vụ IoT để thu thập dữ liệu từ robot nhằm xây dựng các ứng dụng mới, tối ưu hóa tự động hóa, và nâng cao hiệu suất. Đối với xe kết nối (connected vehicles), IoT giúp khách hàng quản lý dữ liệu xe, từ đó cải thiện mô hình machine learning và trải nghiệm trong khoang lái (in-cabin experiences). Ví dụ: <a href="https://aws.amazon.com/solutions/case-studies/wirelesscar-case-study/">[WirelessCar]</a> đang hợp tác với AWS IoT để quản lý đội xe của họ ở quy mô lớn mà không cần quản lý hạ tầng, cho phép họ kết nối hàng triệu xe với đám mây.</p>
+<h3 id="những-xu-hướng-iot-nào-chúng-ta-nên-kỳ-vọng-khi-bước-vào-giai-đoạn-tiếp-theo"><strong>Những xu hướng IoT nào chúng ta nên kỳ vọng khi bước vào giai đoạn tiếp theo?</strong></h3>
+<p>Tôi tin rằng IoT sẽ trở thành một kỳ vọng phổ biến trong kinh doanh thay vì là ngoại lệ. Nhiều doanh nghiệp và ngành công nghiệp sẽ tiếp tục đầu tư vào IoT bởi vì nó mang lại giá trị kinh doanh và vận hành. Chúng tôi liên tục thấy các phân khúc khách hàng mới, như ngành bán lẻ, khai thác được giá trị của IoT. Khách hàng đang cố gắng xây dựng một trải nghiệm thống nhất, có thể di chuyển dễ dàng giữa trực tuyến và ngoại tuyến, dẫn đến sự hội tụ với di động, mạng xã hội, và IoT để có thể phục vụ bất cứ nơi nào và bất cứ lúc nào họ mong muốn. Chúng tôi cũng thấy nhu cầu ngày càng tăng đối với các công cụ tập trung vào IoT đơn giản hơn. Điều quan trọng là phải làm cho các công cụ này dễ tiếp cận hơn để các công ty có thể đổi mới và tận dụng chúng, đồng thời dễ dàng thâm nhập vào các ngành công nghiệp khi việc áp dụng các công nghệ IoT tiếp tục phát triển. Ví dụ, các công cụ như <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-advisor.html">[AWS IoT Core Device Advisor]</a> giúp các nhà phát triển xác thực thiết bị IoT để kết nối đáng tin cậy và an toàn với AWS. Họ có thể xác định các vấn đề phần mềm của thiết bị, chẳng hạn như không thể kết nối lại, và có được các nhật ký chi tiết để khắc phục sự cố trong quá trình phát triển và kiểm thử.</p>
+<p>Cuối cùng, khách hàng đang mở rộng các sáng kiến về tính bền vững của mình, không chỉ dừng lại ở việc giảm phát thải mà còn tạo ra các môi trường thông minh (ví dụ: thành phố, tòa nhà, nhà máy), tận dụng IoT để giám sát hiệu suất năng lượng, giảm thiểu lãng phí, và điều chỉnh hoạt động của cơ sở vật chất theo xu hướng sử dụng thực tế. Một ví dụ tuyệt vời về điều này là cách Yara đã hợp tác với chúng tôi để xây dựng một Nền tảng Sản xuất Kỹ thuật số, <a href="https://aws.amazon.com/blogs/iot/yara-aws-digitize-crop-nutrition-production-system/">[Digital Production Platform]</a> (DPP) hiệu quả và bền vững cho ngành nông nghiệp. Nền tảng DPP này là một yếu tố then chốt để số hóa hệ thống sản xuất của họ trên 28 địa điểm sản xuất, 122 đơn vị sản xuất và hai mỏ. DPP phát hiện, thu thập và chạy các phân tích chuyên sâu trên dữ liệu sản xuất liên quan đến năng suất, độ tin cậy, môi trường, an toàn, chất lượng và đổi mới, bằng cách sử dụng AWS IoT SiteWise, AWS IoT Greengrass, AWS IoT Core, <a href="https://aws.amazon.com/iot-analytics/?nc=sn&amp;loc=2&amp;dn=7">[AWS IoT Analytics]</a>, và <a href="https://aws.amazon.com/sagemaker/?nc2=h_ql_prod_ml_sm">[Amazon SageMaker]</a>. Giải pháp này đã giúp Yara dự đoán chất lượng và thành phần sản phẩm, cải thiện sự cân bằng của các tiện ích tại cơ sở, và phát hiện khi nào máy móc cần sửa chữa hoặc bảo trì để duy trì mức hiệu quả sản xuất tối ưu.</p>
+<p><strong>Yasser, một lần nữa cảm ơn anh đã mang đến cho chúng tôi cái nhìn độc quyền về tương lai của IoT tại AWS. Rõ ràng, AWS vẫn đang đầu tư sâu vào các giải pháp IoT để đáp ứng nhu cầu độc đáo của khách hàng, bao gồm cả Amazon.</strong></p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/" title="Các bài blogs đã dịch"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="http://localhost:1313/aws-report-fcj/vi/3-blogstranslated/3.2-blog2/" title="blog 2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="http://localhost:1313/aws-report-fcj/js/clipboard.min.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/perfect-scrollbar.min.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/perfect-scrollbar.jquery.min.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/jquery.sticky.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/featherlight.min.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/highlight.pack.js?1765038701"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://localhost:1313/aws-report-fcj/js/modernizr.custom-3.6.0.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/learn.js?1765038701"></script>
+    <script src="http://localhost:1313/aws-report-fcj/js/hugo-learn.js?1765038701"></script>
+
+    <link href="http://localhost:1313/aws-report-fcj/mermaid/mermaid.css?1765038701" rel="stylesheet" />
+    <script src="http://localhost:1313/aws-report-fcj/mermaid/mermaid.js?1765038701"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    ((i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date()));
+    ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "https://www.google-analytics.com/analytics.js",
+    "ga",
+  );
+
+  ga("create", "UA-158079754-2", "auto");
+  ga("send", "pageview");
+</script>
+  </body>
+</html>

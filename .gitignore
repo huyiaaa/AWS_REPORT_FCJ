@@ -1,5 +1,5 @@
 # Hugo
-public/
+# public/  # Commented out to include public folder with images
 resources/_gen/
 .hugo_build.lock
 
